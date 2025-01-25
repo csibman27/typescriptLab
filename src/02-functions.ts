@@ -65,13 +65,23 @@ function sortColleagues(
   console.log(sortColleagues(colleagues.current, (a, b) => (a.name.length - b.name.length),1));
   
 
-  function findFriends(friends: Friend[], seperater: (p: Friend) => boolean) {
-    
-    
-    const result = friends.map((friend) => ({ name: friend.name }));
-    return result
-    
+function findFriends(friends: Friend[], seperater: (p: Friend) => boolean) {
+  
+  
+  const result = friends.map((friend) => ({ name: friend.name }));
+  return result
+  
+}
+
+console.log(findFriends(friends, (friend) => friend.name.startsWith('Pa')));
+console.log(findFriends(friends, (friend) => friend.age < 35));
+
+
+function addInterest(friend : Friend, newInterest : string): string[] {
+  
+  friend.interests = [newInterest]
+  friend.interests.push(newInterest)
+  return friend.interests;
   }
 
-  console.log(findFriends(friends, (friend) => friend.name.startsWith('Pa')));
-  console.log(findFriends(friends, (friend) => friend.age < 35));
+  console.log(addInterest(friends[0], 'Politics'))
